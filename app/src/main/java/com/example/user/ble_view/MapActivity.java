@@ -15,7 +15,6 @@ import android.util.DisplayMetrics;
 import android.view.Display;
 import android.view.KeyEvent;
 import android.view.View;
-import android.view.Window;
 import android.view.WindowManager;
 
 import java.util.Timer;
@@ -30,7 +29,7 @@ public class MapActivity extends MainActivity{
     private int POINT_Size;
     private int pointX = 380;
     private int pointY = 100;
-    private int MoveType = 1;    //定义区分移动的类型
+    private int MoveType = 1;    //定义区分移动a的类型
     private boolean Index = true;  //判断是否发生移动
     private int xSpeed = 7;
     private int ySpeed = 7;
@@ -69,7 +68,24 @@ public class MapActivity extends MainActivity{
                         finish();
                         break;
                     }
+                    case KeyEvent.KEYCODE_A: {
+                        Index=true;
+                        MoveType=1;
+                        break;
+                    }
+                    case KeyEvent.KEYCODE_S: {
+                        Index=true;
+                        MoveType=4;
+                        break;
+                    }
                     case KeyEvent.KEYCODE_D: {
+                        Index=true;
+                        MoveType=2;
+                        break;
+                    }
+                    case KeyEvent.KEYCODE_W: {
+                        Index=true;
+                        MoveType=3;
                         break;
                     }
                 }
@@ -84,11 +100,7 @@ public class MapActivity extends MainActivity{
                 if (Index == true) {
                     if (count == 18) {
                         count = 0;
-                        if (MoveType == 4) {
-                            Index = false;
-                        }
-                        MoveType = 4;
-                        //Index = false;
+                        Index = false;
                     } else {
                         count++;
                         switch (MoveType) {
